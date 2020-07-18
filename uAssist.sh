@@ -128,6 +128,41 @@ function vscode  {
     sudo apt install -y wget && cd ~ && wget https://az764295.vo.msecnd.net/stable/17299e413d5590b14ab0340ea477cdd86ff13daf/code_1.47.2-1594837870_amd64.deb && sudo dpkg -i code*.deb || sudo apt -f install -y &&  success
 }
 
+function matlab  {
+    echo -e "将要安装MATLAB，此版本为正版软件，不提供激活账号和激活码，请用自己的校邮箱进行激活。"
+    sudo apt install -y git && cd ~ && git clone https://gitee.com/bornfree5986/software  && cd ~/software/Mat* && sudo ./install &&  success
+}
+
+
+function vmware  {
+    echo -e "将要安装VMware Workstation 15.5 pro"
+    sudo apt install -y wget && cd ~ && wget https://www.vmware.com/go/getworkstation-linux && chmod a+x VM*.bundle && sudo ./VM*.bundle &&  success
+	echo -e "${BRed}序列码："
+	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
+	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
+	echo -e "UG5J2-0ME12-M89WY-NPWXX-WQH88"
+	echo -e "UA5DR-2ZD4H-089FY-6YQ5T-YPRX6"
+	echo -e "GA590-86Y05-4806Y-X4PEE-ZV8E0"
+	echo -e "ZF582-0NW5N-H8D2P-0XZEE-Z22VA"
+	echo -e "YA18K-0WY8P-H85DY-L4NZG-X7RAD"
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function gitproxy {
 	read -p "请输入代理socks5代理端口，如1089，默认代理地址是127.0.0.1：" port
 
@@ -154,6 +189,9 @@ function gitee_config {
 function gitpush_store_passwd {
 	git config --global credential.helper store && config_success
 }
+
+
+
 echo " "
 # -e parameter enable 转义
 echo -e "\t${BGreen}【软件安装】${Color_Off}"
@@ -166,6 +204,9 @@ echo -e "\t【5】WPS"
 echo -e "\t【6】virtual box (for Ubuntu18.04, 19.04 and 18.10) "
 echo -e "\t【7】Google Chrome"
 echo -e "\t【8】VSCode"
+echo -e "\t【9】MATLAB"
+echo -e "\t【10】VMware Workstation 15.5 pro"
+
 
 echo "  "
 echo ""
@@ -217,6 +258,12 @@ case ${index} in
 		;;
 	"8")
 		vscode
+		;;
+	"9")
+		matlab
+		;;
+	"10")
+		vmware
 		;;
 
 
