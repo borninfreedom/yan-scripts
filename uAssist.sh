@@ -104,7 +104,7 @@ function terminator {
 #install linux qq
 function linuxqq {
 	echo -e " 将要安装Linux QQ "
-	sudo apt install -y wget && cd ~ && wget http://down.qq.com/qqweb/LinuxQQ_1/linuxqq_2.0.0-b2-1082_amd64.deb && sudo dpkg -i linuxqq*.deb || sudo apt -f install -y
+	sudo apt install -y wget && cd ~ && wget http://down.qq.com/qqweb/LinuxQQ_1/linuxqq_2.0.0-b2-1082_amd64.deb && sudo dpkg -i linuxqq*.deb || sudo apt -f install -y && success
 }
 
 
@@ -149,6 +149,10 @@ function vmware  {
 }
 
 
+function teamviewer {
+	echo -e " 将要安装 teamviewer "
+	sudo apt install -y wget && cd ~ && wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i teamviewer*.deb || sudo apt -f install -y && success
+}
 
 
 
@@ -206,6 +210,7 @@ echo -e "\t【7】Google Chrome"
 echo -e "\t【8】VSCode"
 echo -e "\t【9】MATLAB"
 echo -e "\t【10】VMware Workstation 15.5 pro"
+echo -e "\t【11】teamviewer"
 
 
 echo "  "
@@ -225,6 +230,8 @@ echo ""
 echo -e  -n "直接输入${BYellow}数字序号${Color_Off}(Ctrl + C 退出)：" 
 
 read index
+
+echo ""
 
 while ! [[ "$index" =~ ^[0-9]+$ ]]
 do
@@ -264,6 +271,9 @@ case ${index} in
 		;;
 	"10")
 		vmware
+		;;
+	"11")
+		teamviewer
 		;;
 
 
