@@ -155,7 +155,10 @@ function teamviewer {
 }
 
 
-
+function okular {
+	echo -e "将要安装okular，pdf阅读和注释软件。"
+	sudo apt update && sudo apt install okular && success
+}
 
 
 
@@ -211,6 +214,7 @@ echo -e "\t【8】VSCode"
 echo -e "\t【9】MATLAB"
 echo -e "\t【10】VMware Workstation 15.5 pro"
 echo -e "\t【11】teamviewer"
+echo -e "\t【12】okular"
 
 
 echo "  "
@@ -275,7 +279,9 @@ case ${index} in
 	"11")
 		teamviewer
 		;;
-
+	"12")
+		okular
+		;;
 
 
 
