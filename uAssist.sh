@@ -71,7 +71,7 @@ function config_success {
 
 # this will install proxychains, proxychains is the proxy software that can be make traffic through proxy.
 function proxychains {
-	echo "将要安装proxychains。"
+	echo -e "${BYellow}将要安装proxychains。${Color_Off}" && sleep 2s \
 	cd ~
 	sudo apt install -y gcc
 	sudo apt install -y git
@@ -86,7 +86,7 @@ function proxychains {
 
 #install redshift-gtk
 function redshift {		# the former of { must have a space
-	echo "Install redshift"
+	echo "Install redshift" && sleep 2s \
 	# -y parameter indicates that you auto select yes.
 	sudo apt install -y redshift-gtk && echo "${BYellow}安装成功"
 	# when you exec a command, shell will return a flag that indicates whether exec successfully. if success ,return 0, otherwise 1 default. you can use 
@@ -97,46 +97,48 @@ function redshift {		# the former of { must have a space
 
 #install terminator
 function terminator {
-	echo "安装terminator"
-	sudo apt install -y terminator && echo "${BYellow}安装成功"
+	echo -e "${BYellow}将要安装terminator${Color_Off}" \
+	&& sleep 2s \
+	&& sudo apt install -y terminator \
+	&& echo -e "${BYellow}安装成功"
 }
 
 #install linux qq
 function linuxqq {
-	echo -e " 将要安装Linux QQ "
-	sudo apt install -y wget && cd ~ && wget http://down.qq.com/qqweb/LinuxQQ_1/linuxqq_2.0.0-b2-1082_amd64.deb && sudo dpkg -i linuxqq*.deb || sudo apt -f install -y && success
+	echo -e " ${BYellow}将要安装Linux QQ ${Color_Off}" && sleep 2s \
+	&& sudo apt install -y wget && cd ~ && wget http://down.qq.com/qqweb/LinuxQQ_1/linuxqq_2.0.0-b2-1082_amd64.deb && sudo dpkg -i linuxqq*.deb || sudo apt -f install -y && success
 }
 
 
 function wps {
-	echo -e "将要安装WPS"
-	sudo apt install -y wget && cd ~ && wget https://wdl1.cache.wps.cn/wps/download/ep/Linux2019/9604/wps-office_11.1.0.9604_amd64.deb && sudo dpkg -i wps*.deb || sudo apt -f install -y &&  success
+	echo -e "${BYellow}将要安装WPS${Color_Off}" && sleep 2s \
+	&& sudo apt install -y wget && cd ~ && wget https://wdl1.cache.wps.cn/wps/download/ep/Linux2019/9604/wps-office_11.1.0.9604_amd64.deb && sudo dpkg -i wps*.deb || sudo apt -f install -y &&  success
 }
 
 function vbox {
-	echo -e "将要安装virtual box"
-	sudo apt install -y wget && cd ~ && wget https://download.virtualbox.org/virtualbox/6.1.12/virtualbox-6.1_6.1.12-139181~Ubuntu~bionic_amd64.deb && sudo dpkg -i virtualbox*.deb || sudo apt -f install -y &&  success
+	echo -e "${BYellow}将要安装virtual box${Color_Off}" && sleep 2s \
+	&& sudo apt install -y wget && cd ~ && wget https://download.virtualbox.org/virtualbox/6.1.12/virtualbox-6.1_6.1.12-139181~Ubuntu~bionic_amd64.deb && sudo dpkg -i virtualbox*.deb || sudo apt -f install -y &&  success
 }
 
 function chrome {
-	echo -e "将要安装Google Chrome"
-	sudo apt install -y wget && cd ~ && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome*.deb || sudo apt -f install -y &&  success
+	echo -e "${BYellow}将要安装Google Chrome${Color_Off}" && sleep 2s \
+	&& sudo apt install -y wget && cd ~ && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome*.deb || sudo apt -f install -y &&  success
 }
 
 function vscode  {
-    echo -e "将要安装VSCode"
-    sudo apt install -y wget && cd ~ && wget https://az764295.vo.msecnd.net/stable/17299e413d5590b14ab0340ea477cdd86ff13daf/code_1.47.2-1594837870_amd64.deb && sudo dpkg -i code*.deb || sudo apt -f install -y &&  success
+    echo -e "${BYellow}将要安装VSCode${Color_Off}" && sleep 2s \
+    && sudo apt install -y wget && cd ~ && wget https://az764295.vo.msecnd.net/stable/17299e413d5590b14ab0340ea477cdd86ff13daf/code_1.47.2-1594837870_amd64.deb && sudo dpkg -i code*.deb || sudo apt -f install -y &&  success
 }
 
 function matlab  {
-    echo -e "将要安装MATLAB，此版本为正版软件，不提供激活账号和激活码，请用自己的校邮箱进行激活。"
-    sudo apt install -y git && cd ~ && git clone https://gitee.com/bornfree5986/software  && cd ~/software/Mat* && sudo ./install &&  success
+    echo -e "${BYellow}将要安装MATLAB，此版本为正版软件，不提供激活账号和激活码，请用自己的校邮箱进行激活。${Color_Off}" && sleep 2s \
+    && sudo apt install -y git && cd ~ && git clone https://gitee.com/bornfree5986/software  && cd ~/software/Mat* && sudo ./install &&  success
 }
 
 
 function vmware  {
-    echo -e "将要安装VMware Workstation 15.5 pro"
-    sudo apt install -y wget && cd ~ && wget https://www.vmware.com/go/getworkstation-linux && chmod a+x VM*.bundle && sudo ./VM*.bundle &&  success
+    echo -e "${BYellow}将要安装VMware Workstation 15.5 pro${Color_Off}" && sleep 2s \
+    && sudo apt install -y wget && cd ~ && wget https://www.vmware.com/go/getworkstation-linux && chmod a+x VM*.bundle && sudo ./VM*.bundle &&  success
 	echo -e "${BRed}序列码："
 	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
 	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
@@ -150,31 +152,31 @@ function vmware  {
 
 
 function teamviewer {
-	echo -e " 将要安装 teamviewer "
-	sudo apt install -y wget && cd ~ && wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i teamviewer*.deb || sudo apt -f install -y && success
+	echo -e " ${BYellow}将要安装 teamviewer${Color_Off} " && sleep 2s \
+	&& sudo apt install -y wget && cd ~ && wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i teamviewer*.deb || sudo apt -f install -y && success
 }
 
 
 function okular {
-	echo -e "将要安装okular，pdf阅读和注释软件。"
-	sudo apt update && sudo apt install okular && success
+	echo -e "${BYellow}将要安装okular，pdf阅读和注释软件。${Color_Off}" && sleep 2s \
+	&& sudo apt update && sudo apt install okular && success
 }
 
 function pycharmpro {
-	echo -e "将要安装pycharm professional"
-	sudo snap install pycharm-professional --classic && success
+	echo -e "${BYellow}将要安装pycharm professional${Color_Off}" && sleep 2s \
+	&& sudo snap install pycharm-professional --classic && success
 
 }
 
 function pycharmcmu {
-	echo -e "将要安装pycharm professional"
-	sudo snap install pycharm-community --classic && success
+	echo -e "${BYellow}将要安装pycharm professional${Color_Off}" && sleep 2s \
+	&& sudo snap install pycharm-community --classic && success
 
 }
 
 function clion {
-	echo -e "将要安装clion"
-	sudo snap install clion --classic && success
+	echo -e "${BYellow}将要安装clion${Color_Off}" && sleep 2s \
+	&& sudo snap install clion --classic && success
 }
 
 
@@ -216,7 +218,7 @@ function shellv {
 }
 
 function mactheme {
-	echo "将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。"
+	echo "${BYellow}将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。" && sleep 2s \
 	sudo apt install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell \
 	&& sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf \
 	&& sudo add-apt-repository ppa:dyatlov-igor/sierra-theme \
@@ -228,13 +230,14 @@ function mactheme {
 	&& sudo cp -r Cuper* /usr/share/icons \
 	&& success \
 	&& echo -e "${BRed}请打开Ubuntu软件商店，安装user theme、dash to dock、 \
-							topicons plus、bing wallpaper changer等插件， \
-							然后打开tweak软件（前面已经安装），设置" \
+topicons plus、bing wallpaper changer等插件， \
+然后打开tweak软件（前面已经安装），设置" \
 	&& echo -e "${BGreen}Appearance -> Themes" \
 	&& echo -e "${BGreen}Applications -> Sierra-compact-dark" \
 	&& echo -e "${BGreen}Cursor -> DMZ-Black" \
 	&& echo -e "${BGreen}Icons -> Cupertino-iCons" \
-	&& echo -e "${BGreen}Shell -> Sierra-compact-dark" 
+	&& echo -e "${BGreen}Shell -> Sierra-compact-dark" \
+	&& echo ""
 }
 
 function test {
