@@ -207,6 +207,9 @@ function gitpush_store_passwd {
 	git config --global credential.helper store && config_success
 }
 
+function pycharmplot {
+	echo -e "${BRed}请依次选择 Settings -> Tools -> Python Scitific，取消勾选 show plots in tool window"
+}
 
 
 echo " "
@@ -238,6 +241,7 @@ echo -e "\t【111】git clone 走代理"
 echo -e "\t【222】github commit 设置邮箱和用户名"  # email and username have been defined as const at the start of the shell.
 echo -e "\t【333】gitee commit 设置邮箱和用户名"  # email and username have been defined as const at the start of the shell.
 echo -e "\t【444】设置 gitpush 记住用户名和密码，此项作用是记住push时的用户名和密码，只输入一次即可"
+echo -e "\t【555】pycharm plot 绘图在单独的窗口中显示图像"
 
 echo ""
 echo ""
@@ -316,6 +320,9 @@ case ${index} in
 		;;
 	"444")
 		gitpush_store_passwd
+		;;
+	"555")
+		pycharmplot
 		;;
 
 	*)
