@@ -160,12 +160,22 @@ function okular {
 	sudo apt update && sudo apt install okular && success
 }
 
+function pycharmpro {
+	echo -e "将要安装pycharm professional"
+	sudo snap install pycharm-professional --classic && success
 
+}
 
+function pycharmcmu {
+	echo -e "将要安装pycharm professional"
+	sudo snap install pycharm-community --classic && success
 
+}
 
-
-
+function clion {
+	echo -e "将要安装clion"
+	sudo snap install clion --classic && success
+}
 
 
 
@@ -215,7 +225,9 @@ echo -e "\t【9】MATLAB"
 echo -e "\t【10】VMware Workstation 15.5 pro"
 echo -e "\t【11】teamviewer"
 echo -e "\t【12】okular"
-
+echo -e "\t【13】pycharm professional"
+echo -e "\t【14】pycharm community"
+echo -e "\t【15】clion"
 
 echo "  "
 echo ""
@@ -282,7 +294,15 @@ case ${index} in
 	"12")
 		okular
 		;;
-
+	"13")
+		pycharmpro
+		;;
+	"14")
+		pycharmcmu
+		;;
+	"15")
+		clion
+		;;
 
 
 	"111")
