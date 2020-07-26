@@ -227,16 +227,20 @@ function mactheme {
 	&& git clone https://github.com/borninfreedom/Cupertino-iCons.git \
 	&& sudo cp -r Cuper* /usr/share/icons \
 	&& success \
-	&& echo -e -n "${BRed}请打开Ubuntu软件商店，安装user theme、dash to dock、
-							topicons plus、bing wallpaper changer等插件，
+	&& echo -e "${BRed}请打开Ubuntu软件商店，安装user theme、dash to dock、 \
+							topicons plus、bing wallpaper changer等插件， \
 							然后打开tweak软件（前面已经安装），设置" \
 	&& echo -e "${BGreen}Appearance -> Themes" \
 	&& echo -e "${BGreen}Applications -> Sierra-compact-dark" \
 	&& echo -e "${BGreen}Cursor -> DMZ-Black" \
 	&& echo -e "${BGreen}Icons -> Cupertino-iCons" \
-	&& echo -e "${BGreen}Shell -> Sierra-compact-dark" \
+	&& echo -e "${BGreen}Shell -> Sierra-compact-dark" 
 }
 
+function test {
+	sudo apt install git \
+	&& success
+}
 echo " "
 # -e parameter enable 转义
 echo -e "\t${BGreen}【软件安装】${Color_Off}"
@@ -269,7 +273,7 @@ echo -e "\t【444】设置 gitpush 记住用户名和密码，此项作用是记
 echo -e "\t【555】pycharm plot 绘图在单独的窗口中显示图像"
 echo -e "\t【666】查看gnome shell version，在下载gnome extension的时候会用到。"
 echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面环境）"
-
+echo -e "\t【001】test"
 
 echo ""
 echo ""
@@ -358,9 +362,7 @@ case ${index} in
 	"777")
 		mactheme
 		;;
-	*)
-		echo "请输入屏幕上指定的序号"
+	"001")
+		test
 		;;
 esac
-
-
