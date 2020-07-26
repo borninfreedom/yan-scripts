@@ -211,6 +211,31 @@ function pycharmplot {
 	echo -e "${BRed}请依次选择 Settings -> Tools -> Python Scitific，取消勾选 show plots in tool window"
 }
 
+function shellv {
+	gnome-shell --version
+}
+
+function mactheme {
+	echo "将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。"
+	sudo apt install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell \
+	&& sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf \
+	&& sudo add-apt-repository ppa:dyatlov-igor/sierra-theme \
+	&& sudo apt update \
+	&& sudo apt install sierra-gtk-theme \
+	&& sudo apt install git \
+	&& cd ~ \
+	&& git clone https://github.com/borninfreedom/Cupertino-iCons.git \
+	&& sudo cp -r Cuper* /usr/share/icons \
+	&& success \
+	&& echo -e -n "${BRed}请打开Ubuntu软件商店，安装user theme、dash to dock、
+							topicons plus、bing wallpaper changer等插件，
+							然后打开tweak软件（前面已经安装），设置" \
+	&& echo -e "${BGreen}Appearance -> Themes" \
+	&& echo -e "${BGreen}Applications -> Sierra-compact-dark" \
+	&& echo -e "${BGreen}Cursor -> DMZ-Black" \
+	&& echo -e "${BGreen}Icons -> Cupertino-iCons" \
+	&& echo -e "${BGreen}Shell -> Sierra-compact-dark" \
+}
 
 echo " "
 # -e parameter enable 转义
@@ -242,6 +267,9 @@ echo -e "\t【222】github commit 设置邮箱和用户名"  # email and usernam
 echo -e "\t【333】gitee commit 设置邮箱和用户名"  # email and username have been defined as const at the start of the shell.
 echo -e "\t【444】设置 gitpush 记住用户名和密码，此项作用是记住push时的用户名和密码，只输入一次即可"
 echo -e "\t【555】pycharm plot 绘图在单独的窗口中显示图像"
+echo -e "\t【666】查看gnome shell version，在下载gnome extension的时候会用到。"
+echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面环境）"
+
 
 echo ""
 echo ""
@@ -324,7 +352,12 @@ case ${index} in
 	"555")
 		pycharmplot
 		;;
-
+	"666")
+		shellv
+		;;
+	"777")
+		mactheme
+		;;
 	*)
 		echo "请输入屏幕上指定的序号"
 		;;
