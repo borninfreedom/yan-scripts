@@ -69,6 +69,10 @@ function config_success {
 	echo -e "${BYellow}配置成功！"
 }
 
+function keep {
+	sleep 2s
+}
+
 # this will install proxychains, proxychains is the proxy software that can be make traffic through proxy.
 function proxychains {
 	echo -e "${BYellow}将要安装proxychains。${Color_Off}" && sleep 2s \
@@ -240,6 +244,14 @@ topicons plus、bing wallpaper changer等插件， \
 	&& echo ""
 }
 
+function gpu {
+	echo -e "${BRed}请确保已经安装NVIDIA显卡驱动" && keep \
+	&& echo "alias gpu='watch -n 2 -d nvidia-smi'" >> ~/.bashrc \
+	&& source ~/.bashrc \
+	&& echo -e "${BYellow}配置成功，直接在终端输入'gpu'即可监视GPU。"
+
+}
+
 function test {
 	sudo apt install git \
 	&& success
@@ -276,6 +288,8 @@ echo -e "\t【444】设置 gitpush 记住用户名和密码，此项作用是记
 echo -e "\t【555】pycharm plot 绘图在单独的窗口中显示图像"
 echo -e "\t【666】查看gnome shell version，在下载gnome extension的时候会用到。"
 echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面环境）"
+echo -e "\t【888】监视GPU情况"
+
 echo -e "\t【001】test"
 
 echo ""
@@ -365,6 +379,10 @@ case ${index} in
 	"777")
 		mactheme
 		;;
+	"888")
+		gpu
+		;;
+		
 	"001")
 		test
 		;;
