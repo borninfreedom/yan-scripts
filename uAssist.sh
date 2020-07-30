@@ -142,7 +142,7 @@ function matlab  {
 
 function vmware  {
     echo -e "${BYellow}将要安装VMware Workstation 15.5 pro${Color_Off}" && sleep 2s \
-    && sudo apt install -y wget && cd ~ && wget https://www.vmware.com/go/getworkstation-linux && chmod a+x VM*.bundle && sudo ./VM*.bundle &&  success
+    && sudo apt install -y wget && cd ~ && wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-15.5.6-16341506.x86_64.bundle && chmod a+x VM*.bundle && sudo ./VM*.bundle &&  success
 	echo -e "${BRed}序列码："
 	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
 	echo -e "YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8"
