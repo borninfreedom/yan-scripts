@@ -73,6 +73,9 @@ function keep {
 	sleep 2s
 }
 
+function jump {
+	echo ""
+}
 # this will install proxychains, proxychains is the proxy software that can be make traffic through proxy.
 function proxychains {
 	echo -e "${BYellow}将要安装proxychains。${Color_Off}" && sleep 2s \
@@ -245,20 +248,22 @@ topicons plus、bing wallpaper changer等插件， \
 }
 
 function macbuntu {
-	echo "${BYellow}将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。" && sleep 2s \
-	&& sudo apt install git \
-	&& cd ~
+	echo -e "${BYellow}将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。${Color_Off}" && sleep 2s \
+	&& sudo apt install -y git \
+	&& cd ~ \
 	&& git clone https://gitee.com/bornfree5986/mac_wallpapers.git \
+	|| echo -e "${BRed}请检查在/home目录下是否已经存在mac_wallpapers文件夹${Color_Off}" \
 	&& cd ~/mac_wallpapers \
 	&& cp *.jpg ~/Pictures \
 	|| cp *.jpg ~/图片 \
-	&& sudo apt-get install unity-tweak-tool \
+	&& sudo apt-get install -y unity-tweak-tool \
 	&& sudo add-apt-repository ppa:noobslab/macbuntu \
 	&& sudo apt-get update \
-	&& sudo apt-get install macbuntu-os-icons-lts-v7 \
-	&& sudo apt-get install macbuntu-os-ithemes-lts-v7 \
-	&& sudo apt install slingcold \
-	&& echo -e "${BYellow}请打开tweak软件设置主题和图标。${Color_Off}" \
+	&& sudo apt-get install -y macbuntu-os-icons-lts-v7 \
+	&& sudo apt-get install -y macbuntu-os-ithemes-lts-v7 \
+	&& sudo apt install -y slingscold \
+	&& echo -e "${BYellow}请打开unity tweak tool软件设置主题和图标。${Color_Off}" \
+	&& echo -e "${BYellow}MacOS壁纸已经自动导入到Pictures文件夹中，请打开壁纸设置选择壁纸。${Color_Off}" \
 	&& config_success
 }
 function gpu {
@@ -408,3 +413,9 @@ case ${index} in
 		test
 		;;
 esac
+
+
+
+# Reference
+# http://www.linuxandubuntu.com/home/macbuntu-transform-ubuntu-1604-to-mac-os-x
+# https://gitee.com/bornfree5986/mac_wallpapers
