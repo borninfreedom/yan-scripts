@@ -244,6 +244,23 @@ topicons plus、bing wallpaper changer等插件， \
 	&& echo ""
 }
 
+function macbuntu {
+	echo "${BYellow}将要配置MacOS主题和图标，会下载必要的组件，下载完成后按照说明在界面上操作。" && sleep 2s \
+	&& sudo apt install git \
+	&& cd ~
+	&& git clone https://gitee.com/bornfree5986/mac_wallpapers.git \
+	&& cd ~/mac_wallpapers \
+	&& cp *.jpg ~/Pictures \
+	|| cp *.jpg ~/图片 \
+	&& sudo apt-get install unity-tweak-tool \
+	&& sudo add-apt-repository ppa:noobslab/macbuntu \
+	&& sudo apt-get update \
+	&& sudo apt-get install macbuntu-os-icons-lts-v7 \
+	&& sudo apt-get install macbuntu-os-ithemes-lts-v7 \
+	&& sudo apt install slingcold \
+	&& echo -e "${BYellow}请打开tweak软件设置主题和图标。${Color_Off}" \
+	&& config_success
+}
 function gpu {
 	echo -e "${BRed}请确保已经安装NVIDIA显卡驱动" && keep \
 	&& echo "alias gpu='watch -n 2 -d nvidia-smi'" >> ~/.bashrc \
@@ -288,7 +305,8 @@ echo -e "\t【444】设置 gitpush 记住用户名和密码，此项作用是记
 echo -e "\t【555】pycharm plot 绘图在单独的窗口中显示图像"
 echo -e "\t【666】查看gnome shell version，在下载gnome extension的时候会用到。"
 echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面环境）"
-echo -e "\t【888】监视GPU情况"
+echo -e "\t【888】Ubuntu16 unity环境 配置MacOS主题（仅限于Unity桌面环境）"
+echo -e "\t【999】监视GPU情况"
 
 echo -e "\t【001】test"
 
@@ -380,6 +398,9 @@ case ${index} in
 		mactheme
 		;;
 	"888")
+		macbuntu
+		;;
+	"999")
 		gpu
 		;;
 		
