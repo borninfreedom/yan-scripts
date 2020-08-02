@@ -58,20 +58,32 @@ UPurple='\033[4;35m'      # Purple
 UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
+function keep {
+	sleep 2s
+}
+
+
+fcecho(){
+	echo -e "${BYellow}$1${Color_Off}"
+	keep
+}
+
+fecho(){
+	echo -e "\t【$1】$2"
+}
 #install success
 function success {
 	# if you want to use colored font display, must add -e parameter.
 	echo -e "${BYellow}安装成功！"
 }
+# this function also can be replaced with 
+# success(){}
 
 function config_success {
 	# if you want to use colored font display, must add -e parameter.
 	echo -e "${BYellow}配置成功！"
 }
 
-function keep {
-	sleep 2s
-}
 
 function jump {
 	echo ""
@@ -186,6 +198,16 @@ function clion {
 	&& sudo snap install clion --classic && success
 }
 
+octave(){
+	fcecho "将要安装octave"
+	sudo apt-get install -y octave \
+	&& sudo apt-get install -y octave-control octave-image octave-io octave-optim octave-signal octave-statistics \
+	&& success
+}
+
+function oct {
+	fcecho 降压片安装
+}
 
 
 
@@ -274,9 +296,14 @@ function gpu {
 
 }
 
+
+function minimize {
+	echo -e "${BYellow}设置launpad图标再次点击最小化${Color_Off}"
+	gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true && config_success
+
+}
 function test {
-	sudo apt install git \
-	&& success
+	oct
 }
 echo " "
 # -e parameter enable 转义
@@ -297,6 +324,8 @@ echo -e "\t【12】okular"
 echo -e "\t【13】pycharm professional"
 echo -e "\t【14】pycharm community"
 echo -e "\t【15】clion"
+#echo -e "\t【16】Octave"
+fecho 16 Octave
 
 echo "  "
 echo ""
@@ -312,6 +341,7 @@ echo -e "\t【666】查看gnome shell version，在下载gnome extension的时�
 echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面环境）"
 echo -e "\t【888】Ubuntu16 unity环境 配置MacOS主题（仅限于Unity桌面环境）"
 echo -e "\t【999】监视GPU情况"
+echo -e "\t【1111】Ubuntu16设置图标再次点击最小化"
 
 echo -e "\t【001】test"
 
@@ -379,7 +409,9 @@ case ${index} in
 	"15")
 		clion
 		;;
-
+	"16")
+		octave
+		;;
 
 	"111")
 		gitproxy
@@ -408,7 +440,9 @@ case ${index} in
 	"999")
 		gpu
 		;;
-		
+	"1111")
+		minimize
+		;;
 	"001")
 		test
 		;;
@@ -419,3 +453,5 @@ esac
 # Reference
 # http://www.linuxandubuntu.com/home/macbuntu-transform-ubuntu-1604-to-mac-os-x
 # https://gitee.com/bornfree5986/mac_wallpapers
+# https://wiki.octave.org/Octave_for_Debian_systems
+# https://bash.cyberciti.biz/guide/Pass_arguments_into_a_function
