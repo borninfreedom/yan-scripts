@@ -188,7 +188,7 @@ function pycharmpro {
 }
 
 function pycharmcmu {
-	echo -e "${BYellow}将要安装pycharm professional${Color_Off}" && sleep 2s \
+	echo -e "${BYellow}将要安装pycharm community${Color_Off}" && sleep 2s \
 	&& sudo snap install pycharm-community --classic && success
 
 }
