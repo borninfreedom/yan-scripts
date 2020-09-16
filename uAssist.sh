@@ -289,19 +289,40 @@ function macbuntu {
 	&& config_success
 }
 function gpu {
-	echo -e "${BRed}请确保已经安装NVIDIA显卡驱动" && keep \
+	echo -e "${BRed}请确保已经安装NVIDIA显卡驱动${Color_Off}" && keep \
 	&& echo "alias gpu='watch -n 2 -d nvidia-smi'" >> ~/.bashrc \
 	&& source ~/.bashrc \
-	&& echo -e "${BYellow}配置成功，直接在终端输入'gpu'即可监视GPU。"
+	&& echo -e "${BYellow}配置成功，直接在终端输入'gpu'即可监视GPU。${Color_Off}"
 
 }
 
 
 function minimize {
-	echo -e "${BYellow}设置launpad图标再次点击最小化${Color_Off}"
-	gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true && config_success
+	echo -e "${BYellow}设置launchpad图标再次点击最小化${Color_Off}" && keep \
+	&& gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true && config_success
 
 }
+
+function changeSource {
+	echo -e "${BYellow}将更换为阿里源${Color_Off}" && keep \
+	&& sudo apt install vim \
+	&& sudo mv /etc/apt/sources.list /etc/apt/sources.list.d \
+	&& sudo touch /etc/apt/sources.list \
+	&& cd /etc/apt \
+	&& sudo sh -c "echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse' >> sources.list" \
+	&& sudo sh -c "echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse' >> sources.list" \
+	&& sudo apt update \
+	&& echo -e "${BYellow}换源成功。原始文件保存为 /etc/apt/sources.list.d ${Color_Off}"
+}
+
 function test {
 	oct
 }
@@ -342,7 +363,7 @@ echo -e "\t【777】Ubuntu Gnome环境 配置MacOS主题（仅限于Gnome桌面�
 echo -e "\t【888】Ubuntu16 unity环境 配置MacOS主题（仅限于Unity桌面环境）"
 echo -e "\t【999】监视GPU情况"
 echo -e "\t【1111】Ubuntu16设置图标再次点击最小化"
-
+echo -e "\t【2222】更换为阿里源（Ubuntu 18）"
 echo -e "\t【001】test"
 
 echo ""
@@ -442,6 +463,9 @@ case ${index} in
 		;;
 	"1111")
 		minimize
+		;;
+	"2222")
+		changeSource
 		;;
 	"001")
 		test
