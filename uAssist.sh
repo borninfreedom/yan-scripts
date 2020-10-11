@@ -95,6 +95,7 @@ function proxychains {
 	sudo apt install -y gcc
 	sudo apt install -y git
 	sudo apt install -y vim
+	sudo apt install -y cmake
 	git clone https://github.com/rofl0r/proxychains-ng.git
 	cd ~/proxychains-ng
 	./configure
