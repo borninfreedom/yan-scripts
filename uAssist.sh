@@ -227,7 +227,7 @@ function gitproxy {
 
 function github_config {
 	echo -e "${Green}默认的邮箱和用户名为 z19040042@s.upc.edu.cn, borninfreedom, 请编辑此脚本，修改脚本开头的GITHUB_EMAIL和GITHUB_USERNAME 为自己账号的信息，再重新配置此项。${Color_Off}"
-	git config user.email ${GITHUB_EMAIL} && git config user.name ${GITHUB_USERNAME} && config_success
+	git config --global user.email ${GITHUB_EMAIL} && git config --global user.name ${GITHUB_USERNAME} && config_success
 }
 
 function gitee_config {
